@@ -49,16 +49,6 @@
             background-color: #FFD700;
             color: #B22222;
         }
-        .promo {
-            background-color: #FFD700;
-            color: #B22222;
-            padding: 15px;
-            font-size: 22px;
-            font-weight: bold;
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
         .products {
             display: flex;
             justify-content: center;
@@ -78,6 +68,16 @@
         .product:hover {
             transform: scale(1.05);
         }
+        .about, .testimonials, .contact {
+            padding: 40px;
+            background-color: #FFF5D1;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .testimonials-container {
+            max-height: 400px;
+            overflow-y: auto;
+        }
         .footer {
             background-color: #B22222;
             color: #FFD700;
@@ -85,37 +85,93 @@
             margin-top: 40px;
             font-size: 18px;
         }
+        @media (max-width: 768px) {
+            .products {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body>
     <header>Bolsamia - Tienda Online</header>
-    <div class="banner">✨ Descubre el lujo en cada detalle ✨</div>
+    <div class="banner">✨ Descubre la mejor variedad de productos ✨</div>
     <div class="container">
-        <p>Explora nuestra exclusiva colección de bolsos de alta gama.</p>
+        <p>Explora nuestra amplia gama de productos: deportivos, hogar, cosméticos, electrónicos, accesorios para celular y productos para mascotas.</p>
         <button class="btn">Ver Tienda</button>
-        <div class="promo">🔥 Nueva Colección 2025 - ¡Hasta 50% de descuento! 🔥</div>
     </div>
     
     <div class="products">
         <div class="product">
-            <h3>Bolso Elegante</h3>
-            <p>$99.99</p>
+            <h3>Artículos Deportivos</h3>
+            <p>Desde $29.99</p>
             <button class="btn">Comprar</button>
         </div>
         <div class="product">
-            <h3>Bolso Casual</h3>
-            <p>$79.99</p>
+            <h3>Accesorios para el Hogar</h3>
+            <p>Desde $19.99</p>
             <button class="btn">Comprar</button>
         </div>
         <div class="product">
-            <h3>Bolso de Fiesta</h3>
-            <p>$119.99</p>
+            <h3>Cosméticos Exclusivos</h3>
+            <p>Desde $14.99</p>
+            <button class="btn">Comprar</button>
+        </div>
+        <div class="product">
+            <h3>Electrónica</h3>
+            <p>Desde $49.99</p>
+            <button class="btn">Comprar</button>
+        </div>
+        <div class="product">
+            <h3>Accesorios para Celular</h3>
+            <p>Desde $9.99</p>
+            <button class="btn">Comprar</button>
+        </div>
+        <div class="product">
+            <h3>Productos para Mascotas</h3>
+            <p>Desde $12.99</p>
             <button class="btn">Comprar</button>
         </div>
     </div>
     
-    <div class="footer">
-        <p>&copy; 2025 Bolsamia - Lujo y Exclusividad en Cada Diseño.</p>
+    <div class="about">
+        <h2>Sobre Nosotros</h2>
+        <p>En Bolsamia, ofrecemos una variedad de productos de calidad para todas tus necesidades.</p>
     </div>
+    
+    <div class="testimonials">
+        <h2>Testimonios</h2>
+        <div class="testimonials-container" id="testimonials"></div>
+    </div>
+    
+    <div class="contact">
+        <h2>Contacto</h2>
+        <p>Email: bolsamia777@gmail.com</p>
+        <p>Teléfono: 3226010972</p>
+    </div>
+    
+    <div class="footer">
+        <p>&copy; 2025 Bolsamia - Variedad y Calidad en Cada Producto.</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const testimonialsContainer = document.getElementById("testimonials");
+            let testimonialsHTML = "";
+            const testimonios = [
+                "Me encantó la calidad del producto, excelente servicio!",
+                "¡Entrega rápida y atención impecable!",
+                "Los precios son muy accesibles y la calidad increíble.",
+                "Muy satisfecho con mi compra, volveré a comprar aquí.",
+                "El servicio al cliente es de lo mejor, recomendado.",
+                "Me sorprendió la variedad de productos, muy bueno!"
+            ];
+            for (let i = 1; i <= 150; i++) {
+                const testimonioAleatorio = testimonios[Math.floor(Math.random() * testimonios.length)];
+                testimonialsHTML += `<p>⭐⭐⭐⭐⭐ "${testimonioAleatorio}"</p>`;
+            }
+            testimonialsContainer.innerHTML = testimonialsHTML;
+        });
+    </script>
 </body>
 </html>
